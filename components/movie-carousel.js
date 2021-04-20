@@ -8,7 +8,6 @@ import {
   Dimensions,
   ScrollView,
   Platform,
-  SafeAreaView,
 } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -41,12 +40,11 @@ const MovieCarousel = () => {
       >
         {movies.map((movie, index) => (
           <View key={index + 1} style={styles.card}>
-            {index}
             <Image
               style={styles.image}
-              source={{
-                uri: 'https://pics.filmaffinity.com/Venom-539453192-large.jpg',
-              }}
+              source={
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjr1PxIwMvIDPUKQHpRbXDnnjJWIUo4qrkTQ&usqp=CAU'
+              }
             />
             <Text style={styles.text}>Venom</Text>
           </View>
@@ -65,21 +63,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    width: 200,
-    height: 400,
+    width: 'auto',
+    height: 300,
+    margin: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'cyan',
-    margin: 5,
-    borderRadius: 15,
   },
   image: {
-    width: 160,
-    height: 200,
+    width: 250,
+    height: 280,
     backgroundColor: 'gray',
   },
   text: {
-    fontSize: 18,
+    fontSize: 24,
     color: 'white',
     paddingVertical: 10,
     paddingHorizontal: 4,
