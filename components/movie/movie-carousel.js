@@ -10,6 +10,8 @@ import {
   Platform,
 } from 'react-native';
 
+import CinemaElement from './cinema-element';
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 const CARD_HEIGHT = Dimensions.get('window').height * 0.7;
@@ -46,7 +48,16 @@ const MovieCarousel = () => {
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjr1PxIwMvIDPUKQHpRbXDnnjJWIUo4qrkTQ&usqp=CAU'
               }
             />
-            <Text style={styles.text}>Venom</Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
+              <Text style={styles.text}>Venom</Text>
+              <CinemaElement text="3D/MAX" />
+            </View>
           </View>
         ))}
       </ScrollView>
@@ -67,7 +78,7 @@ const styles = StyleSheet.create({
     width: 'auto',
     height: 300,
     margin: 10,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   image: {
@@ -76,6 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   text: {
+    flex: 1,
     fontSize: 22,
     color: 'white',
     paddingVertical: 10,

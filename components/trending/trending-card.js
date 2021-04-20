@@ -5,6 +5,7 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import FavoriteButton from '../movie/add-favorite';
+import CinemaElement from '../movie/cinema-element';
 
 const TrendingCard = (props) => {
   return (
@@ -25,8 +26,8 @@ const TrendingCard = (props) => {
         <Text style={styles.textGender}>Anime/Family</Text>
 
         <View style={styles.containerCinema}>
-          <Text style={styles.cinemaElement}>3D/MAX</Text>
-          <Text style={styles.cinemaElement}>4D</Text>
+          <CinemaElement text="3D/MAX" />
+          <CinemaElement text="4D" />
         </View>
 
         <View style={styles.containerValuation}>
@@ -78,18 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 1,
   },
-  cinemaElement: {
-    alignItems: 'center',
-    backgroundColor: 'black',
-    borderColor: 'orange',
-    borderWidth: 1,
-    color: 'orange',
-    textTransform: 'capitalize',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    fontSize: 12,
-    marginRight: 10,
-  },
+
   iconStar: {
     fontSize: 16,
   },

@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 
-import MovieCarousel from '../components/movie-carousel';
+import MovieCarousel from '../components/movie/movie-carousel';
 import TrendingList from '../components/trending/trending-list';
 
 const HomeScreen = ({ navigation }) => {
