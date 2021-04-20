@@ -22,30 +22,30 @@ const MovieCarousel = () => {
     <View style={styles.container}>
       <ScrollView
         horizontal
-        // pagingEnabled
-        // snapToInterval={CARD_WIDTH + 10}
-        // snapToAlignment="center"
-        // contentInset={{
-        //   top: 0,
-        //   left: SPACING_FOR_CARD_INSET,
-        //   bottom: 0,
-        //   right: SPACING_FOR_CARD_INSET,
-        // }}
-        // contentContainerStyle={{
-        //   paddingHorizontal:
-        //     Platform.OS === 'android' ? SPACING_FOR_CARD_INSET : 0,
-        // }}
+        pagingEnabled
+        snapToInterval={CARD_WIDTH + 10}
+        snapToAlignment="center"
+        contentInset={{
+          top: 0,
+          left: SPACING_FOR_CARD_INSET,
+          bottom: 0,
+          right: SPACING_FOR_CARD_INSET,
+        }}
+        contentContainerStyle={{
+          paddingHorizontal:
+            Platform.OS === 'android' ? SPACING_FOR_CARD_INSET : 0,
+        }}
       >
         {movies.map((movie, index) => (
           <View key={index + 1} style={styles.card}>
             {index}
-            {/* <Image
+            <Image
               style={styles.image}
               source={{
                 uri: 'https://pics.filmaffinity.com/Venom-539453192-large.jpg',
               }}
             />
-            <Text style={styles.text}>Venom</Text> */}
+            <Text style={styles.text}>Venom</Text>
           </View>
         ))}
       </ScrollView>
