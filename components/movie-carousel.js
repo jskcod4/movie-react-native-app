@@ -11,9 +11,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-const CARD_WIDTH = Dimensions.get('window').width * 0.8;
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 const CARD_HEIGHT = Dimensions.get('window').height * 0.7;
-const SPACING_FOR_CARD_INSET = Dimensions.get('window').width * 0.1 - 10;
+const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 
 const MovieCarousel = () => {
   const movies = new Array(25).fill(Math.random());
@@ -21,10 +22,12 @@ const MovieCarousel = () => {
   return (
     <View style={styles.container}>
       <ScrollView
-        horizontal
+        horizontal={true}
         pagingEnabled
         snapToInterval={CARD_WIDTH + 10}
         snapToAlignment="center"
+        showsHorizontalScrollIndicator={false}
+        style={{ width: SCREEN_WIDTH }}
         contentInset={{
           top: 0,
           left: SPACING_FOR_CARD_INSET,
