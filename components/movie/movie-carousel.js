@@ -28,7 +28,7 @@ const MovieCarousel = () => {
         snapToInterval={CARD_WIDTH + 10}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        style={{ maxWidth: SCREEN_WIDTH }}
+        style={{ maxWidth: SCREEN_WIDTH, marginVertical: 15 }}
         contentInset={{
           top: 0,
           left: SPACING_FOR_CARD_INSET,
@@ -53,6 +53,7 @@ const MovieCarousel = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 width: '100%',
+                paddingVertical: 10,
               }}
             >
               <Text style={styles.text}>Venom</Text>
