@@ -4,6 +4,8 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import FavoriteButton from '../movie/add-favorite';
+
 const TrendingCard = (props) => {
   return (
     <View style={styles.container}>
@@ -17,7 +19,7 @@ const TrendingCard = (props) => {
         }
       />
 
-      <View style={styles.containerRight}>
+      <View style={styles.containerCenter}>
         <Text style={styles.textTitle}>Interstellar</Text>
         <Text style={styles.textDuration}>2h 5m</Text>
         <Text style={styles.textGender}>Anime/Family</Text>
@@ -32,6 +34,10 @@ const TrendingCard = (props) => {
           <Text style={styles.textValuation}>6.0</Text>
         </View>
       </View>
+
+      <View style={styles.containerBookmark}>
+        <FavoriteButton />
+      </View>
     </View>
   );
 };
@@ -44,10 +50,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: 10,
   },
-  containerRight: {
+  containerCenter: {
+    flex: 1,
     position: 'relative',
     padding: 25,
-    paddingBottom: 45,
+    paddingBottom: 50,
   },
   containerValuation: {
     position: 'absolute',
@@ -59,12 +66,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 5,
   },
+  containerBookmark: {
+    alignItems: 'flex-end',
+    paddingTop: 25,
+  },
   containerCinema: {
     position: 'absolute',
     bottom: 0,
     left: 80,
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 1,
   },
   cinemaElement: {
     alignItems: 'center',
@@ -75,11 +87,11 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     paddingVertical: 5,
     paddingHorizontal: 10,
-    fontSize: 14,
+    fontSize: 12,
     marginRight: 10,
   },
   iconStar: {
-    fontSize: 14,
+    fontSize: 16,
   },
   textTitle: {
     color: 'white',
@@ -99,8 +111,8 @@ const styles = StyleSheet.create({
   },
   textValuation: {
     color: 'black',
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: 16,
+    fontWeight: 'bold',
     marginLeft: 5,
   },
 });
