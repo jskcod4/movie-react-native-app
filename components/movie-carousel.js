@@ -58,7 +58,6 @@ export default MovieCarousel;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 250,
+    width: 200,
     height: 280,
     backgroundColor: 'gray',
   },
