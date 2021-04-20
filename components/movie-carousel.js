@@ -16,7 +16,7 @@ const CARD_HEIGHT = Dimensions.get('window').height * 0.7;
 const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 
 const MovieCarousel = () => {
-  const movies = new Array(25).fill(Math.random());
+  const movies = new Array(10).fill(Math.random());
 
   return (
     <View style={styles.container}>
