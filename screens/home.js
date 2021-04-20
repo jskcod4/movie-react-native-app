@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: '70px',
+    paddingLeft: '30px',
     paddingRight: '30px',
     overflow: 'hidden',
     maxWidth: '100%',
