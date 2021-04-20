@@ -4,14 +4,15 @@ import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import MovieCarousel from '../components/movie-carousel';
-import TrendingCard from '../components/trending-card';
+import TrendingList from '../components/trending/trending-list';
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MovieCarousel />
 
-      <TrendingCard />
+      <TrendingList />
+
       <StatusBar style="light" />
     </View>
   );

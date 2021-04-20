@@ -15,11 +15,11 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            title: 'Movies',
+            title: 'Movie',
             animationEnabled: true,
             headerTitleStyle: {
               color: '#fff',
-              fontSize: '28px',
+              fontSize: 36,
               fontWeight: 'bold',
               paddingLeft: '12px',
             },

@@ -16,7 +16,7 @@ const CARD_HEIGHT = Dimensions.get('window').height * 0.7;
 const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 
 const MovieCarousel = () => {
-  const movies = new Array(10).fill(Math.random());
+  const movies = new Array(10).fill(1);
 
   return (
     <View style={styles.container}>
@@ -26,7 +26,7 @@ const MovieCarousel = () => {
         snapToInterval={CARD_WIDTH + 10}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        style={{ width: SCREEN_WIDTH }}
+        style={{ maxWidth: SCREEN_WIDTH }}
         contentInset={{
           top: 0,
           left: SPACING_FOR_CARD_INSET,
@@ -58,6 +58,8 @@ export default MovieCarousel;
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
+    left: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -74,10 +76,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   text: {
-    fontSize: 24,
+    fontSize: 22,
     color: 'white',
     paddingVertical: 10,
     paddingHorizontal: 4,
     fontWeight: 'bold',
+    textAlign: 'left',
   },
 });
