@@ -5,14 +5,7 @@ import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const FavoriteButton = () => {
-  return (
-    <Icon
-      style={styles.bookmarkPlain}
-      name="bookmark-o"
-      size={20}
-      color="#fff"
-    />
-  );
+  return <Icon style={styles.bookmarkPlain} name="bookmark-o" color="#fff" />;
 };
 
 export default FavoriteButton;

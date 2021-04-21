@@ -13,7 +13,12 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Trending</Text>
-        <Text style={styles.link}>view all</Text>
+        <Text
+          style={styles.link}
+          onPress={() => navigation.navigate('MovieDetail')}
+        >
+          view all
+        </Text>
       </View>
 
       <TrendingList />

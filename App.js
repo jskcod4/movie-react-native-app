@@ -4,6 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './screens/home';
+import MovieDetail from './screens/movie-detail';
+
+import HeaderOption, { HeaderBack } from './components/header/header-option';
 
 const Stack = createStackNavigator();
 
@@ -15,18 +18,34 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={{
+            ...headerOptions,
             title: 'Movie',
-            animationEnabled: true,
-            headerTitleStyle: {
-              color: '#fff',
-              fontSize: 36,
-              fontWeight: 'bold',
-              paddingLeft: '12px',
+          }}
+        />
+        <Stack.Screen
+          name="MovieDetail"
+          component={MovieDetail}
+          options={{
+            ...headerOptions,
+            headerTitleContainerStyle: {
+              display: 'none',
             },
-            headerStyle: { backgroundColor: '#000', borderBottomColor: 'none' },
+            headerLeft: () => <HeaderBack />,
+            headerRight: () => <HeaderOption></HeaderOption>,
           }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const headerOptions = {
+  animationEnabled: false,
+  headerTitleStyle: {
+    color: '#fff',
+    fontSize: 36,
+    fontWeight: 'bold',
+    paddingHorizontal: 12,
+  },
+  headerStyle: { backgroundColor: '#000', borderBottomColor: 'none' },
+};
