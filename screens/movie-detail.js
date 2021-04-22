@@ -13,6 +13,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Valuation from '../components/movie/valuation';
 
+import CinemaElement from '../components/movie/cinema-element';
+
 const MovieDetail = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -20,11 +22,11 @@ const MovieDetail = ({ navigation }) => {
         <Text style={styles.headerTitle}>The Nun</Text>
 
         <View style={styles.containerResume}>
-          <View>
+          <View style={{ position: 'relative', marginLeft: -30 }}>
             <Image
               style={{
-                width: 240,
-                height: 320,
+                width: 200,
+                height: 300,
                 backgroundColor: 'gray',
               }}
               source={
@@ -32,12 +34,20 @@ const MovieDetail = ({ navigation }) => {
               }
             />
 
-            <View>
-              <Valuation />
+            <View style={{ position: 'absolute', top: 0, right: 0 }}>
+              <Valuation style={{ backgroundColor: '#C8C8C8', opacity: 0.8 }} />
             </View>
           </View>
 
-          <View></View>
+          <View style={styles.containerRight}>
+            <Text style={styles.textDuration}>1h 5m </Text>
+            <Text style={styles.textGender}>Mystery Thriller</Text>
+
+            <View style={styles.containerCinema}>
+              <CinemaElement text="3D/MAX" />
+              <CinemaElement text="4D" />
+            </View>
+          </View>
         </View>
       </ScrollView>
       <TouchableOpacity style={styles.book}>
@@ -85,5 +95,24 @@ const styles = StyleSheet.create({
   containerResume: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  containerRight: {
+    padding: 20,
+  },
+  containerCinema: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  textDuration: {
+    color: 'gray',
+    fontSize: 22,
+    fontWeight: '400',
+    paddingBottom: 10,
+  },
+  textGender: {
+    color: 'orange',
+    fontSize: 18,
+    fontWeight: '400',
+    marginBottom: 15,
   },
 });

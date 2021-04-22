@@ -4,9 +4,9 @@ import { Text, StyleSheet, View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Valuation = ({ ...props }) => {
+const Valuation = ({ style = {} }) => {
   return (
-    <View style={styles.containerValuation}>
+    <View style={[styles.containerValuation, { ...style }]}>
       <Icon style={styles.iconStar} name="star" size={20} color="#000" />
       <Text style={styles.textValuation}>6.0</Text>
     </View>
