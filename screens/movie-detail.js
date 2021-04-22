@@ -43,9 +43,19 @@ const MovieDetail = ({ navigation }) => {
             <Text style={styles.textDuration}>1h 5m </Text>
             <Text style={styles.textGender}>Mystery Thriller</Text>
 
-            <View style={styles.containerCinema}>
+            <View style={[styles.containerCinema, { marginBottom: 20 }]}>
               <CinemaElement text="3D/MAX" />
               <CinemaElement text="4D" />
+            </View>
+
+            <View style={styles.containerShip}>
+              <Text style={styles.textShip}>5.8/10 </Text>
+              <Text style={styles.textShip}>imbd</Text>
+            </View>
+
+            <View style={styles.containerShip}>
+              <Text style={styles.textShip}>5.8/10 </Text>
+              <Text style={styles.textShip}>imbd</Text>
             </View>
           </View>
         </View>
@@ -97,11 +107,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerRight: {
+    flex: 1,
     padding: 20,
   },
   containerCinema: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  containerShip: {
+    flexDirection: 'row',
+    backgroundColor: 'gray',
+    padding: 10,
+    width: '100%',
+    marginBottom: 10,
+  },
+  textShip: {
+    flex: 1,
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 16,
   },
   textDuration: {
     color: 'gray',
