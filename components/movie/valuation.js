@@ -4,19 +4,30 @@ import { Text, StyleSheet, View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Valuation = ({ style = {} }) => {
+const ShipAction = ({
+  styleContainer = {},
+  iconName = 'star',
+  styleIcon = {},
+  styleText = {},
+  text = 6.0,
+}) => {
   return (
-    <View style={[styles.containerValuation, { ...style }]}>
-      <Icon style={styles.iconStar} name="star" size={20} color="#000" />
-      <Text style={styles.textValuation}>6.0</Text>
+    <View style={[styles.container, { ...styleContainer }]}>
+      <Icon
+        style={[styles.iconStar, { ...styleIcon }]}
+        name={iconName}
+        size={20}
+        color="#000"
+      />
+      <Text style={[styles.textValuation, { ...styleText }]}>{text}</Text>
     </View>
   );
 };
 
-export default Valuation;
+export default ShipAction;
 
 const styles = StyleSheet.create({
-  containerValuation: {
+  container: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 18,

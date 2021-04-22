@@ -15,15 +15,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            ...headerOptions,
-            title: 'Movie',
-          }}
-        />
-
-        <Stack.Screen
           name="MovieDetail"
           component={MovieDetail}
           options={{
@@ -33,6 +24,14 @@ export default function App() {
             },
             headerLeft: () => <HeaderBack />,
             headerRight: () => <HeaderOption></HeaderOption>,
+          }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            ...headerOptions,
+            title: 'Movie',
           }}
         />
       </Stack.Navigator>

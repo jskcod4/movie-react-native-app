@@ -11,7 +11,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Valuation from '../components/movie/valuation';
+import ShipAction from '../components/movie/valuation';
 
 import CinemaElement from '../components/movie/cinema-element';
 
@@ -35,7 +35,9 @@ const MovieDetail = ({ navigation }) => {
             />
 
             <View style={{ position: 'absolute', top: 0, right: 0 }}>
-              <Valuation style={{ backgroundColor: '#C8C8C8', opacity: 0.8 }} />
+              <ShipAction
+                styleContainer={{ backgroundColor: '#C8C8C8', opacity: 0.8 }}
+              />
             </View>
           </View>
 
@@ -53,9 +55,22 @@ const MovieDetail = ({ navigation }) => {
               <Text style={styles.textShip}>imbd</Text>
             </View>
 
-            <View style={styles.containerShip}>
+            <View style={[styles.containerShip, { marginBottom: 10 }]}>
               <Text style={styles.textShip}>5.8/10 </Text>
               <Text style={styles.textShip}>imbd</Text>
+            </View>
+
+            <View style={styles.containerShipAction}>
+              <ShipAction
+                iconName="play"
+                text="Watch Trailer"
+                styleIcon={{ marginRight: 10, fontSize: 22 }}
+                styleText={{ fontSize: 18, fontWeight: 'bold' }}
+                styleContainer={{
+                  padding: 18,
+                  width: 200,
+                }}
+              />
             </View>
           </View>
         </View>
@@ -109,6 +124,8 @@ const styles = StyleSheet.create({
   containerRight: {
     flex: 1,
     padding: 20,
+    position: 'relative',
+    height: '100%',
   },
   containerCinema: {
     flexDirection: 'row',
@@ -118,8 +135,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'gray',
     padding: 10,
-    width: '100%',
+    width: 120,
     marginBottom: 10,
+  },
+  containerShipAction: {
+    position: 'absolute',
+    left: -60,
+    bottom: 0,
   },
   textShip: {
     flex: 1,
