@@ -2,10 +2,9 @@ import React from 'react';
 
 import { View, Image, Text, StyleSheet } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 import FavoriteButton from '../movie/add-favorite';
 import CinemaElement from '../movie/cinema-element';
+import Valuation from '../movie/valuation';
 
 const TrendingCard = (props) => {
   return (
@@ -31,8 +30,7 @@ const TrendingCard = (props) => {
         </View>
 
         <View style={styles.containerValuation}>
-          <Icon style={styles.iconStar} name="star" size={20} color="#000" />
-          <Text style={styles.textValuation}>6.0</Text>
+          <Valuation />
         </View>
       </View>
 
@@ -61,11 +59,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: -10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'orange',
-    paddingHorizontal: 18,
-    paddingVertical: 5,
   },
   containerBookmark: {
     alignItems: 'flex-end',
@@ -78,10 +71,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 1,
-  },
-
-  iconStar: {
-    fontSize: 16,
   },
   textTitle: {
     color: 'white',
@@ -98,11 +87,5 @@ const styles = StyleSheet.create({
     color: 'orange',
     fontSize: 16,
     fontWeight: '400',
-  },
-  textValuation: {
-    color: 'black',
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginLeft: 5,
   },
 });
