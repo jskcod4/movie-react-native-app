@@ -3,13 +3,13 @@ import { View, StyleSheet, Text } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 
-import TrendingCarousel from '../components/trending/trending-carousel';
 import TrendingList from '../components/trending/trending-list';
+import DiscoverCarousel from '../components/discover/discover-carousel';
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <TrendingCarousel />
+      <DiscoverCarousel />
 
       <View style={styles.containerTitle}>
         <Text style={styles.title}>Trending</Text>

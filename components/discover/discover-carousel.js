@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import GetTrending from '../../services/GetTrending';
+import GetDiscover, { SortByOptions } from '../../services/GetDiscover';
 
 import MovieCarousel from '../movie/movie-carousel';
 
-const TrendingCarousel = () => {
+const DiscoverCarousel = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    GetTrending().then((res) => {
-      console.log(res);
+    GetDiscover(SortByOptions.voteDesc).then((res) => {
       setMovies(res);
     });
   }, []);
@@ -17,4 +16,4 @@ const TrendingCarousel = () => {
   return <MovieCarousel movies={movies} />;
 };
 
-export default TrendingCarousel;
+export default DiscoverCarousel;
