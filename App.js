@@ -7,35 +7,39 @@ import HomeScreen from './screens/home';
 import MovieDetail from './screens/movie-detail';
 
 import HeaderOption, { HeaderBack } from './components/header/header-option';
+import GlobalContextProvider from './context/global';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="MovieDetail"
-          component={MovieDetail}
-          options={{
-            ...headerOptions,
-            headerTitleContainerStyle: {
-              display: 'none',
-            },
-            headerLeft: () => <HeaderBack />,
-            headerRight: () => <HeaderOption></HeaderOption>,
-          }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            ...headerOptions,
-            title: 'Movie',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GlobalContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              ...headerOptions,
+              title: 'Movie',
+            }}
+          />
+
+          <Stack.Screen
+            name="MovieDetail"
+            component={MovieDetail}
+            options={{
+              ...headerOptions,
+              headerTitleContainerStyle: {
+                display: 'none',
+              },
+              headerLeft: () => <HeaderBack />,
+              headerRight: () => <HeaderOption></HeaderOption>,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GlobalContextProvider>
   );
 }
 

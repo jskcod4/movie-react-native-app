@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import {
   View,
@@ -12,13 +12,22 @@ import {
 
 import CinemaElement from './cinema-element';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+import { GlobalContext } from '../../context/global';
+
 const CARD_WIDTH = SCREEN_WIDTH * 0.8;
-const CARD_HEIGHT = Dimensions.get('window').height * 0.7;
+const SCREEN_WIDTH = Dimensions.get('window').width;
 const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 
-const MovieCarousel = () => {
-  const movies = new Array(10).fill(1);
+import { IMAGE_PATH } from '../../settings';
+
+const MovieCarousel = ({ movies = [] }) => {
+  const { genders } = useContext(GlobalContext);
+
+  const genderName = (genderList = []) =>
+    genders
+      .filter((gender) => genderList.includes(gender.id))
+      .map((gender) => gender.name)
+      .shift();
 
   return (
     <View style={styles.container}>
@@ -44,20 +53,18 @@ const MovieCarousel = () => {
           <View key={index + 1} style={styles.card}>
             <Image
               style={styles.image}
-              source={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjr1PxIwMvIDPUKQHpRbXDnnjJWIUo4qrkTQ&usqp=CAU'
-              }
+              source={IMAGE_PATH + movie.poster_path}
             />
             <View
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 width: '100%',
-                paddingVertical: 10,
+                paddingVertical: 20,
               }}
             >
-              <Text style={styles.text}>Venom</Text>
-              <CinemaElement text="3D/MAX" />
+              <Text style={styles.text}>{movie.original_title}</Text>
+              <CinemaElement text={genderName(movie.genre_ids)} />
             </View>
           </View>
         ))}
@@ -83,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 200,
+    width: 220,
     height: 280,
     backgroundColor: 'gray',
   },
@@ -91,8 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 22,
     color: 'white',
-    paddingVertical: 10,
-    paddingHorizontal: 4,
+    paddingRight: 10,
     fontWeight: 'bold',
     textAlign: 'left',
   },

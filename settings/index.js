@@ -5,3 +5,5 @@ export const TrendingTypes = Object.freeze({
   Day: 'day',
   Week: 'week',
 });
+
+export const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
