@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { View, Image, Text, StyleSheet } from 'react-native';
+
+import { GlobalContext } from '../../context/global';
 
 import FavoriteButton from '../movie/add-favorite';
 import CinemaElement from '../movie/cinema-element';
 import Valuation from '../movie/valuation';
 
-const TrendingCard = (props) => {
+import { IMAGE_PATH } from '../../settings';
+
+const TrendingCard = ({ movie }) => {
+  const { genders } = useContext(GlobalContext);
+
+  const genderName = (genderList = []) =>
+    genders
+      .filter((gender) => genderList.includes(gender.id))
+      .map((gender) => gender.name)
+      .slice(0, 2)
+      .join('/ ');
+
   return (
     <View style={styles.container}>
       <Image
@@ -14,15 +27,13 @@ const TrendingCard = (props) => {
           width: 120,
           height: '100%',
         }}
-        source={
-          'https://cdn.mos.cms.futurecdn.net/acxCNCbz3BLdF5GRLCDqQU-320-80.jpg'
-        }
+        source={IMAGE_PATH + movie.poster_path}
       />
 
       <View style={styles.containerCenter}>
-        <Text style={styles.textTitle}>Interstellar</Text>
+        <Text style={styles.textTitle}>{movie.original_title}</Text>
         <Text style={styles.textDuration}>2h 5m</Text>
-        <Text style={styles.textGender}>Anime/Family</Text>
+        <Text style={styles.textGender}>{genderName(movie.genre_ids)}</Text>
 
         <View style={styles.containerCinema}>
           <CinemaElement text="3D/MAX" />
@@ -30,7 +41,7 @@ const TrendingCard = (props) => {
         </View>
 
         <View style={styles.containerValuation}>
-          <Valuation />
+          <Valuation text={movie.vote_average} />
         </View>
       </View>
 

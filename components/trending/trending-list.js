@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { View, StyleSheet } from 'react-native';
+
+import GetTrending from '../../services/GetTrending';
 
 import TrendingCard from './trending-card';
 
 const TrendingList = () => {
-  const trendingList = new Array(50).fill(1);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    GetTrending().then((res) => {
+      setMovies(res);
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
-      {trendingList.map((trending, index) => (
-        <TrendingCard key={index}></TrendingCard>
+      {movies.map((movie, index) => (
+        <TrendingCard key={movie.id} movie={movie} />
       ))}
     </View>
   );

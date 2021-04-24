@@ -12,8 +12,6 @@ import {
 
 import CinemaElement from './cinema-element';
 
-import { GlobalContext } from '../../context/global';
-
 const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
@@ -21,14 +19,6 @@ const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 import { IMAGE_PATH } from '../../settings';
 
 const MovieCarousel = ({ movies = [] }) => {
-  const { genders } = useContext(GlobalContext);
-
-  const genderName = (genderList = []) =>
-    genders
-      .filter((gender) => genderList.includes(gender.id))
-      .map((gender) => gender.name)
-      .shift();
-
   return (
     <View style={styles.container}>
       <ScrollView
@@ -64,7 +54,7 @@ const MovieCarousel = ({ movies = [] }) => {
               }}
             >
               <Text style={styles.text}>{movie.original_title}</Text>
-              <CinemaElement text={genderName(movie.genre_ids)} />
+              <CinemaElement text="3D/MAX" />
             </View>
           </View>
         ))}
