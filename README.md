@@ -18,10 +18,10 @@ Ejemplo de react native movie app, basado en [The movie Database API](https://de
 
 ### Cosas por hacer: 👷
 
-- [] 🐛 Acortar titulo de películas
-- [] ⚡️ Detalles de películas
-- [] ⚡️ Obtener la duracion en card de películas
-- [] 🎨 Responsive en todos los dispositivos 
-- [] 🎨 Horizontal orientacion
-- [] 📱 Ejecucion de dispositivo android
-- [] 📱 Ejecucion de dispositivo ios 
+- [ ] 🐛 Acortar titulo de películas
+- [ ] ⚡️ Detalles de películas
+- [ ] ⚡️ Obtener la duracion en card de películas
+- [ ] 🎨 Responsive en todos los dispositivos 
+- [ ] 🎨 Horizontal orientacion
+- [ ] 📱 Ejecucion de dispositivo android
+- [ ] 📱 Ejecucion de dispositivo ios 
