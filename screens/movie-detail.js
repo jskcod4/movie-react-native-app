@@ -134,7 +134,7 @@ export default MovieDetail;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: '#000',
     maxHeight: '100%',
     overflow: 'hidden',
   },
