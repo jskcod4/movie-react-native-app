@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   View,
@@ -7,15 +7,36 @@ import {
   TouchableOpacity,
   Text,
   Image,
+  useWindowDimensions,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { TabView, SceneMap } from 'react-native-tab-view';
 
 import ShipAction from '../components/movie/valuation';
 
 import CinemaElement from '../components/movie/cinema-element';
 
+import CardReview from '../components/cards/review';
+
 const MovieDetail = ({ navigation }) => {
+  const renderScene = SceneMap({
+    info: InfoTab,
+    review: ReviewTab,
+    awards: AwardsTab,
+  });
+
+  const layout = useWindowDimensions();
+
+  const [index, setIndex] = useState(0);
+
+  const [routes] = useState([
+    { key: 'info', title: 'First' },
+    { key: 'review', title: 'Second' },
+    { key: 'awards', title: 'Second' },
+  ]);
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollContainer}>
@@ -74,7 +95,17 @@ const MovieDetail = ({ navigation }) => {
             </View>
           </View>
         </View>
+
+        <TabView
+          navigationState={{ index, routes }}
+          renderScene={renderScene}
+          onIndexChange={setIndex}
+          initialLayout={{ width: layout.width }}
+          style={{ marginVertical: 10 }}
+          indicatorStyle={{ backgroundColor: 'pink' }}
+        />
       </ScrollView>
+
       <TouchableOpacity style={styles.book}>
         <Icon style={styles.ticket} name="ticket" color="#000"></Icon>
         <Text style={styles.text}>Book ticket</Text>
@@ -83,15 +114,34 @@ const MovieDetail = ({ navigation }) => {
   );
 };
 
+const description =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+
+const InfoTab = () => (
+  <CardReview title="Story time" description={description} />
+);
+
+const ReviewTab = () => (
+  <CardReview title="Story time" description={description} />
+);
+
+const AwardsTab = () => (
+  <CardReview title="Story time" description={description} />
+);
+
 export default MovieDetail;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 'yellow',
+    maxHeight: '100%',
+    overflow: 'hidden',
   },
   scrollContainer: {
-    paddingHorizontal: 30,
+    flex: 1,
+    padding: 30,
+    overflow: 'scroll',
   },
   book: {
     position: 'relative',
