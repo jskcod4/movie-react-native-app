@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader';
 const MovieListLoader = (props) => (
   <ContentLoader
     width={380}
-    height={300}
     viewBox="0 0 700 300"
     backgroundColor="#f5f5f5"
     foregroundColor="#000"

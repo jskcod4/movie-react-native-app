@@ -6,13 +6,9 @@ import GetTrending from '../../services/GetTrending';
 
 import TrendingCard from './trending-card';
 
-import MovieListLoader from '../loaders/movie-card-loader';
-
 const TrendingList = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const loaderElements = new Array(3).fill(1);
 
   useEffect(() => {
     setLoading(true);
@@ -26,20 +22,10 @@ const TrendingList = () => {
       });
   }, []);
 
-  if (loading) {
-    return (
-      <View style={styles.container}>
-        {loaderElements.map((el, index) => (
-          <MovieListLoader key={index} />
-        ))}
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       {movies.map((movie, index) => (
-        <TrendingCard key={movie.id} movie={movie} />
+        <TrendingCard key={movie.id} movie={movie} loading={loading} />
       ))}
     </View>
   );

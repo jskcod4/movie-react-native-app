@@ -10,7 +10,9 @@ import Valuation from '../movie/valuation';
 
 import { IMAGE_PATH } from '../../settings';
 
-const TrendingCard = ({ movie }) => {
+import MovieListLoader from '../loaders/movie-card-loader';
+
+const TrendingCard = ({ movie, loading }) => {
   const { genders } = useContext(GlobalContext);
 
   const genderName = (genderList = []) =>
@@ -19,6 +21,10 @@ const TrendingCard = ({ movie }) => {
       .map((gender) => gender.name)
       .slice(0, 2)
       .join('/ ');
+
+  if (loading) {
+    return <MovieListLoader />;
+  }
 
   return (
     <View style={styles.container}>
