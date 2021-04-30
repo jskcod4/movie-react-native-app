@@ -1,24 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import {
   View,
   StyleSheet,
-  Image,
-  Text,
   Dimensions,
   ScrollView,
   Platform,
 } from 'react-native';
 
-import CinemaElement from './cinema-element';
+import MovieBasicCard from './movie-basic';
+
+import MovieCarouseLoader from '../loaders/movie-carousel-loader';
 
 const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SPACING_FOR_CARD_INSET = SCREEN_WIDTH * 0.1 - 10;
 
-import { IMAGE_PATH } from '../../settings';
+const MovieCarousel = ({ movies = [], loading = false }) => {
+  const fakeMovies = new Array(10).fill(1);
 
-const MovieCarousel = ({ movies = [] }) => {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -39,24 +39,8 @@ const MovieCarousel = ({ movies = [] }) => {
             Platform.OS === 'android' ? SPACING_FOR_CARD_INSET : 0,
         }}
       >
-        {movies.map((movie, index) => (
-          <View key={index + 1} style={styles.card}>
-            <Image
-              style={styles.image}
-              source={IMAGE_PATH + movie.poster_path}
-            />
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                width: '100%',
-                paddingVertical: 20,
-              }}
-            >
-              <Text style={styles.text}>{movie.original_title}</Text>
-              <CinemaElement text="3D/MAX" />
-            </View>
-          </View>
+        {movies.map((movie) => (
+          <MovieBasicCard movie={movie} key={movie.id} />
         ))}
       </ScrollView>
     </View>
