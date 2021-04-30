@@ -21,11 +21,4 @@ const MovieListLoader = (props) => (
   </ContentLoader>
 );
 
-MovieListLoader.metadata = {
-  name: 'Sridhar Easwaran',
-  github: 'sridhareaswaran',
-  description: 'Events',
-  filename: 'EventsLoader',
-};
-
 export default MovieListLoader;
